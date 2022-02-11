@@ -1,0 +1,6 @@
+web:
+  build: ./tmp_start
+  volumes:
+    - .:/code
+  ports:
+    - "8000:80"
