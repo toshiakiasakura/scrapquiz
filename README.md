@@ -1,3 +1,25 @@
+# For developers. 
+This application is wrappered by Docker for both frontend and backend. 
+The following procedures instantly lead you to develop the application. 
+
+## Backend. 
+Enter the following commands for the first time.
+```
+ sudo docker-compose -f docker-compose.dev.yml run django python manage.py makemigrations
+ sudo docker-compose -f docker-compose.dev.yml run django python manage.py migrate
+ sudo docker-compose -f docker-compose.dev.yml run django python manage.py createsuperuser
+```
+Then, from the next time, you can launch up django app by `docker-compose -f docker-compose.dev.yml up`.
+Access to `localhost:8000/admin` or `localhost:8000/api`.
+It is noted that, the root path (`localhost:8000`) returns the error page since the url path is not set.
+
+## Frontend.
+First you should type,  
+`docker-compose -f docker-compose.dev.yml run app yarn install`
+
+From the next time, you can launch up react redux app by `docker-compose -f docker-compose.dev.yml up`.
+Access to `localhost:3000` will show you react redux app.
+
 # Frequently used command. 
 - Change owner : `sudo chown -R $USER:$USER .` 
     - This command is used if the following error occurs. : `error checking context: 'can't stat '/home/toshiaki/Desktop/scrapquiz/db/data''.`
@@ -21,7 +43,7 @@ sudo docker-compose run django python manage.py createsuperuser
  sudo docker-compose -f docker-compose.dev.yml run django python manage.py createsuperuser
 ```
 
-# Development histroy.  
+# Development histories  
 
 ## Create django project by docker. 
 
