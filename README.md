@@ -44,3 +44,7 @@ Type
 
 ## REST api settings
 - Follow this site https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+
+## Frontend settings.
+- Initialize (Installing node is required at first.)
+`npx create-react-app frontend --template redux-typescript`  

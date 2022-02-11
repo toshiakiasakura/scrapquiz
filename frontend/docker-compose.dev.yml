@@ -1,0 +1,24 @@
+# run command docker-compose -f docker-compose-dev.yml up
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    tty: true
+
+    # ホスト側のポート:コンテナのポート
+    ports:
+      - '3000:3000'
+
+    # ソースコードを格納するフォルダをマウント
+    #（ホスト側の./srcをコンテナの/appにマウント）
+    volumes:
+      - .:/app
+
+    # 起動時のカレントフォルダを指定
+    working_dir: /app
+
+    # 起動後に実行するコマンドを指定
+    command: /bin/bash -c "yarn start" 
